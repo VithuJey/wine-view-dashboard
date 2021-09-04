@@ -1,16 +1,25 @@
 @side-bar-max-width: 22rem;
-@side-bar-min-width: 22rem;
+@side-bar-min-width: 8rem;
 
-.ant-menu,
-.ant-menu-root,
-.ant-menu-vertical,
-.ant-menu-light {
+#root > section > aside > div.ant-layout-sider-children > ul {
   flex: 0 0 @side-bar-max-width;
   max-width: @side-bar-max-width;
   min-width: @side-bar-min-width;
   width: @side-bar-max-width;
   height: 100vh;
+  background-color: @primary-color;
 }
+
+// .ant-menu,
+// .ant-menu-root,
+// .ant-menu-inline,
+// .ant-menu-dark {
+//   flex: 0 0 @side-bar-max-width;
+//   max-width: @side-bar-max-width;
+//   min-width: @side-bar-min-width;
+//   width: @side-bar-max-width;
+//   height: 100vh;
+// }
 
 .ant-image,
 .ant-image-img {
@@ -24,7 +33,6 @@
 }
 
 .ant-menu:not(.ant-menu-horizontal) {
-  background-color: @primary-color;
   font-size: 24px;
 }
 
@@ -33,7 +41,6 @@
   height: 60px;
   line-height: 60px;
   padding: 0 0 0 calc(@side-bar-max-width / 7);
-  margin-bottom: 20px;
 }
 
 #root > section > aside > div > ul > li.ant-menu-item.ant-menu-item-selected {
@@ -53,6 +60,60 @@
   padding-left: 15px;
 }
 
+#root > section > aside > div > ul > li.ant-menu-item,
+#root > section > aside > div > ul > li.ant-menu-submenu {
+  margin-bottom: 30px;
+}
+
+#root
+  > section
+  > aside
+  > div.ant-layout-sider-children
+  > ul
+  > li.ant-menu-submenu.ant-menu-submenu-inline
+  > div
+  > span {
+  padding-left: 30px;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal),
+.ant-menu-item-selected {
+  background-color: rgba(199, 21, 140, 40%);
+}
+
+#root > section > aside > div > ul > li > ul {
+  background-color: rgba(199, 21, 140, 40%);
+}
+
+#root > section > aside > div > ul > li > ul > li {
+  height: 50px;
+  line-height: 50px;
+}
+
+#root > section > aside > div > ul > li > ul > li.ant-menu-item-selected {
+  background-color: @secondary-color;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+}
+
+#root > section > aside > div > ul > li > ul > li > span {
+  color: @text-color-primary;
+  padding-left: 30px;
+}
+
+#root
+  > section
+  > aside
+  > div
+  > ul
+  > li
+  > ul
+  > li.ant-menu-item-selected
+  > span {
+  color: #fff;
+}
+
 .menu-icon {
-  margin-bottom: -5px;
+  // margin-bottom: -5px;
 }

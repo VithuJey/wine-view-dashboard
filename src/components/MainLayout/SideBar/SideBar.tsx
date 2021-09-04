@@ -11,7 +11,7 @@ const { Sider } = Layout;
 function SideBar() {
   return (
     <Sider>
-      <Menu mode="vertical" defaultSelectedKeys={["1"]}>
+      <Menu mode="inline" theme="dark" defaultSelectedKeys={["1"]}>
         <Image width={130} src={LOGO} preview={false} />
         {/* <Divider className="divider" type="horizontal" orientation="center" /> */}
         <Menu.Item
@@ -20,16 +20,16 @@ function SideBar() {
         >
           Dashboard
         </Menu.Item>
-        {/* <SubMenu key="sub1" icon={<FaWineGlassAlt />} title="Wine">
+        <SubMenu key="sub1" icon={<FaWineGlassAlt />} title="Wine">
           <Menu.Item key="2.1">View</Menu.Item>
           <Menu.Item key="2.2">Add</Menu.Item>
-        </SubMenu> */}
-        <Menu.Item
+        </SubMenu>
+        {/* <Menu.Item
           key="2"
           icon={<FaWineGlassAlt size={28} className="menu-icon" />}
         >
           Wine
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="3" icon={<FaRegUser size={25} className="menu-icon" />}>
           Account
         </Menu.Item>
