@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
+import "@Assets/Fonts/Raleway/Raleway-Regular.ttf";
 
 ReactDOM.render(
   <React.StrictMode>
