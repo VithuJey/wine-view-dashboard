@@ -1,0 +1,58 @@
+@side-bar-max-width: 22rem;
+@side-bar-min-width: 22rem;
+
+.ant-menu,
+.ant-menu-root,
+.ant-menu-vertical,
+.ant-menu-light {
+  flex: 0 0 @side-bar-max-width;
+  max-width: @side-bar-max-width;
+  min-width: @side-bar-min-width;
+  width: @side-bar-max-width;
+  height: 100vh;
+}
+
+.ant-image,
+.ant-image-img {
+  margin: 40px calc(@side-bar-max-width / 7) 40px calc(@side-bar-max-width / 7);
+  border-radius: 20px;
+}
+
+.divider {
+  border: 0.2px solid @text-color-primary;
+  width: calc(@side-bar-max-width / 4);
+}
+
+.ant-menu:not(.ant-menu-horizontal) {
+  background-color: @primary-color;
+  font-size: 24px;
+}
+
+#root > section > aside > div > ul > li.ant-menu-item {
+  color: @text-color-primary;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 0 0 calc(@side-bar-max-width / 7);
+  margin-bottom: 20px;
+}
+
+#root > section > aside > div > ul > li.ant-menu-item.ant-menu-item-selected {
+  background-color: @secondary-color;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+}
+
+#root > section > aside > div > ul > li.ant-menu-item:active {
+  background-color: rgba(199, 21, 140, 40%);
+  height: 60px;
+  line-height: 60px;
+}
+
+#root > section > aside > div > ul > li.ant-menu-item > span {
+  padding-left: 15px;
+}
+
+.menu-icon {
+  margin-bottom: -5px;
+}
