@@ -1,27 +1,20 @@
 import React from "react";
 import SideBar from "./SideBar/SideBar";
-import NavBar from "./NavBar/NavBar";
-import Footer from "./Footer/Footer";
-import Layout from "antd/lib/layout";
-import { Content } from "antd/lib/layout/layout";
+import Header from "./Header/Header";
+// import Footer from "./Footer/Footer";
+import { Layout } from "antd";
 import "./style.css";
+const { Footer, Sider, Content } = Layout;
 
 function MainLayout() {
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout>
       <SideBar />
-      {/* <Layout>
-        <NavBar />
-        <Content style={{ margin: "24px 16px 0" }}>
-          <div
-            className="site-layout-background"
-            style={{ padding: 24, minHeight: 360 }}
-          >
-            content
-          </div>
-        </Content>
-        <Footer />
-      </Layout> */}
+      <Layout>
+        <Header />
+        {/* <Content>Content</Content>
+        <Footer>Footer</Footer> */}
+      </Layout>
     </Layout>
   );
 }

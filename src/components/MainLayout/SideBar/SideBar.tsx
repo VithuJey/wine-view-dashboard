@@ -24,12 +24,6 @@ function SideBar() {
           <Menu.Item key="2.1">View</Menu.Item>
           <Menu.Item key="2.2">Add</Menu.Item>
         </SubMenu>
-        {/* <Menu.Item
-          key="2"
-          icon={<FaWineGlassAlt size={28} className="menu-icon" />}
-        >
-          Wine
-        </Menu.Item> */}
         <Menu.Item key="3" icon={<FaRegUser size={25} className="menu-icon" />}>
           Account
         </Menu.Item>
