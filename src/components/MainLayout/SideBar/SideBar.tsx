@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Layout, Menu, Image, Space, Divider } from "antd";
+import React from "react";
+import { Layout, Menu, Image } from "antd";
 import "./style.less";
 import LOGO from "@Assets/Images/logo.png";
 import { AiFillAppstore } from "react-icons/ai";

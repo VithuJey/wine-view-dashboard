@@ -4,7 +4,7 @@ import Header from "./Header/Header";
 // import Footer from "./Footer/Footer";
 import { Layout } from "antd";
 import "./style.css";
-const { Footer, Sider, Content } = Layout;
+const { Footer, Content } = Layout;
 
 function MainLayout() {
   return (
@@ -12,8 +12,8 @@ function MainLayout() {
       <SideBar />
       <Layout>
         <Header />
-        {/* <Content>Content</Content>
-        <Footer>Footer</Footer> */}
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
       </Layout>
     </Layout>
   );

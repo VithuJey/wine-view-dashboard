@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Image, Row, Col, Divider, Button } from "antd";
+import { Layout, Row, Col, Divider, Button } from "antd";
 import "./style.less";
 import { RiLogoutCircleLine } from "react-icons/ri";
 
@@ -31,6 +31,7 @@ function Header() {
             src={
               "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=40"
             }
+            alt="user-pic"
           />
         </Col>
       </Row>
