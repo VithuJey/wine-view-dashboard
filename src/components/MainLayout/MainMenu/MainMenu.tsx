@@ -19,7 +19,7 @@ const MainMenu = ({ selectedKey, changeSelectedKey }: any) => {
       <SubMenu
         className="sub-menu"
         key="1"
-        icon={<FaWineGlassAlt />}
+        icon={<FaWineGlassAlt size={30} className="sub-menu-icon" />}
         title="Wine"
       >
         <Menu.Item className="menu-item" key="1.1" onClick={changeSelectedKey}>

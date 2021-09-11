@@ -14,7 +14,7 @@ const UserAvatar =
 const NavBar = ({ menu }: any) => {
   const [visible, setVisible] = useState(false);
   const { lg, md, sm } = useBreakpoint();
-  console.log(lg, md, sm);
+  console.log(lg);
 
   return (
     <nav className="navbar" style={{ backgroundColor: lg ? "#fff" : "#111" }}>
@@ -52,44 +52,38 @@ const NavBar = ({ menu }: any) => {
             </a>
           </Row>
         </Col>
-        <Col flex={md ? "3" : "1"}>
+        <Col className="col-user-control">
           <Row justify="end" align="middle">
             {lg && (
               <>
-                <Col
-                  flex="0.1"
-                  // style={{ backgroundColor: "#e1e1e1" }}
-                >
-                  <Button className="button-logout">
-                    <RiLogoutCircleLine className="icon-logout" />
-                  </Button>
+                <Col flex="0.1">
+                  <Row justify="end">
+                    <Button className="button-logout" shape="round">
+                      <RiLogoutCircleLine className="icon-logout" />
+                    </Button>
+                  </Row>
                 </Col>
-                <Col flex="0.01">
-                  <Divider
-                    type="vertical"
-                    orientation="center"
-                    className="col-divider"
-                  />
+                <Col flex="0.07">
+                  <Row justify="center">
+                    <Divider
+                      type="vertical"
+                      orientation="center"
+                      className="col-divider"
+                    />
+                  </Row>
                 </Col>
-                <Col
-                  flex="0.3"
-                  className="col-user"
-                  // style={{ backgroundColor: "#111" }}
-                >
+                <Col flex="0.1" className="col-user">
                   <p className="user-name">Mary Jane</p>
                   <p className="email">maryjane@gmail.com</p>
                 </Col>
               </>
             )}
-            <Col
-              flex={!lg ? "0.1" : "0.2"}
-              style={{
-                backgroundColor: "#e1e1e1",
-              }}
-            >
-              <a href="/">
-                <img src={UserAvatar} className="user-avatar" alt="logo" />
-              </a>
+            <Col flex="0.1">
+              <Row justify="end" align="middle">
+                <a href="/">
+                  <img src={UserAvatar} className="user-avatar" alt="logo" />
+                </a>
+              </Row>
             </Col>
           </Row>
         </Col>

@@ -5,12 +5,22 @@
   background-color: @primary-color !important;
 }
 
-.logo {
+.sider-logo {
   width: 130px;
   min-height: 130px;
   border-radius: 20px;
 }
 
 .logo-wrapper {
-  margin: calc(@side-bar-max-width / 4);
+  margin: calc(@side-bar-max-width / 5) calc(@side-bar-max-width / 3.5)
+    calc(@side-bar-max-width / 5) calc(@side-bar-max-width / 3.5);
+}
+
+.sider-col-divider {
+  border: 0.5px solid @text-color-primary !important;
+  background-color: @text-color-primary;
+  min-width: 16rem !important;
+  width: 16rem !important;
+  margin: calc(@side-bar-max-width / 5) calc(@side-bar-max-width / 10)
+    calc(@side-bar-max-width / 5) calc(@side-bar-max-width / 10) !important;
 }

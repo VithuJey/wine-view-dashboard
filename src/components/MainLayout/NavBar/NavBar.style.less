@@ -1,5 +1,4 @@
 .navbar {
-  background-color: #111;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 1rem;
@@ -15,7 +14,7 @@
 .ant-drawer-title {
   background-color: @primary-color !important;
   color: #fff !important;
-  font-size: 24px !important;
+  font-size: 20px !important;
 }
 
 .ant-drawer-body {
@@ -29,11 +28,17 @@
   height: 50px !important;
 }
 
-.logo {
+.ant-drawer-body > ul > li,
+.ant-drawer-body > ul > li > ul > li {
+  font-size: 20px !important;
+}
+
+.nav-logo {
   display: block;
-  width: 30px;
-  min-height: 30px;
+  width: 35px;
+  min-height: 35px;
   border: 1.5px solid @secondary-color;
+  border-radius: 50%;
 }
 
 .user-avatar {
@@ -45,16 +50,79 @@
 }
 
 @media (min-width: 992px) {
+  .ant-drawer-body > ul > li,
+  .ant-drawer-body > ul > li > ul > li {
+    font-size: 24px !important;
+  }
+
   .menu-button {
     display: none !important;
   }
-  .logo {
+
+  .nav-logo {
     display: none !important;
   }
+
+  .button-logout {
+    height: 3.8rem !important;
+    width: 3.8rem;
+    border: 2px solid @secondary-color;
+    border-radius: 10px;
+    padding: 5px 5px 0 7px !important;
+  }
+
+  .icon-logout {
+    font-size: 35px;
+    color: @secondary-color;
+  }
+
+  .col-divider {
+    height: 50px !important;
+    font-size: large;
+    border: 1px solid @text-color-primary;
+    background-color: @text-color-primary;
+    margin: 0 5px 0 5px !important;
+  }
+
+  .col-user {
+    justify-content: center;
+  }
+
+  .user-name {
+    color: @text-color-secondary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 25px;
+    text-align: right;
+    margin: 0px;
+  }
+
+  .email {
+    color: @secondary-color;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: right;
+    margin: 0px;
+  }
+
   .user-avatar {
     width: 58px;
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .col-user-control {
+    flex: 3;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .col-user-control {
+    flex: 1;
   }
 }
