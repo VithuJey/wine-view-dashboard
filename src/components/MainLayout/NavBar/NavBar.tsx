@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Drawer, Button, Row, Col, Grid, Divider } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
-import { GrMenu, GrClose } from "react-icons/gr";
 import LOGO from "@Assets/Images/logo.png";
 import "./NavBar.style.less";
 import { RiLogoutCircleLine } from "react-icons/ri";
@@ -13,7 +12,7 @@ const UserAvatar =
 
 const NavBar = ({ menu }: any) => {
   const [visible, setVisible] = useState(false);
-  const { lg, md, sm } = useBreakpoint();
+  const { lg } = useBreakpoint();
   console.log(lg);
 
   return (

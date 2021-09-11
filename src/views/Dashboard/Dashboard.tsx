@@ -1,7 +1,5 @@
 import { Row } from "antd";
 import React from "react";
-import Button from "../../components/Button/Button";
-import { GoPlus } from "react-icons/go";
 import "./Dashboard.style.less";
 
 function Dashboard() {

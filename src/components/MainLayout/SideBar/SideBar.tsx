@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Image, Divider } from "antd";
+import { Layout, Divider } from "antd";
 import LOGO from "@Assets/Images/logo.png";
 import "./SideBar.style.less";
 
