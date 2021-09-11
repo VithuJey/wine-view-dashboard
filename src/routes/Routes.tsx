@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import Account from "../views/Account/Account";
 
 // @ts-ignore
 function PrivateRoute({ Component, ...rest }) {
@@ -20,7 +21,9 @@ function PrivateRoute({ Component, ...rest }) {
 function Routes() {
   return (
     <Route>
-      <Switch>{/* <PrivateRoute /> */}</Switch>
+      <Switch>
+        <Route path="account" component={Account} />
+      </Switch>
     </Route>
   );
 }

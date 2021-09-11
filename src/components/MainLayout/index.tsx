@@ -5,8 +5,25 @@ import MainMenu from "./MainMenu/MainMenu";
 import NavBar from "./NavBar/NavBar";
 
 import "./style.less";
+import Dashboard from "../../views/Dashboard/Dashboard";
+import WineView from "../../views/WineView/WineView";
+import WineAdd from "../../views/WineAdd/WineAdd";
+import Account from "../../views/Account/Account";
 
 const { Content } = Layout;
+
+const renderContent = (selectedKey: string) => {
+  switch (selectedKey) {
+    case "1.1":
+      return <WineView />;
+    case "1.2":
+      return <WineAdd />;
+    case "2":
+      return <Account />;
+    default:
+      return <Dashboard />;
+  }
+};
 
 function MainLayout() {
   const [selectedKey, setSelectedKey] = useState("0");
@@ -24,7 +41,7 @@ function MainLayout() {
       <SideBar menu={Menu} />
       <Layout>
         <NavBar menu={Menu} />
-        <Content className="content">{selectedKey}</Content>
+        <Content className="content">{renderContent(selectedKey)}</Content>
       </Layout>
     </Layout>
   );
