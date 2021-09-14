@@ -26,7 +26,7 @@ const renderContent = (selectedKey: string) => {
 };
 
 function MainLayout() {
-  const [selectedKey, setSelectedKey] = useState("0");
+  const [selectedKey, setSelectedKey] = useState("2");
   const changeSelectedKey = (event: { key: any }) => {
     const key = event.key;
     setSelectedKey(key);
@@ -42,6 +42,7 @@ function MainLayout() {
       <Layout>
         <NavBar menu={Menu} />
         <Content className="content">{renderContent(selectedKey)}</Content>
+        <div style={{ height: 40 }} />
       </Layout>
     </Layout>
   );

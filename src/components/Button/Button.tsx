@@ -3,6 +3,7 @@ import { Button as AntButton } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import { IconType } from "react-icons";
 import "./Button.style.less";
+import "antd/es/button/style";
 
 type ButtonProps = {
   title: string;

@@ -1,0 +1,55 @@
+.upload-button {
+  background-color: @success-color !important;
+  border: 2px solid #fff !important;
+  border-radius: 100% !important;
+  width: 35px !important;
+  height: 35px !important;
+  padding: 0px !important;
+  top: -22px !important;
+  left: -25px !important;
+  // margin-top: -6px !important;
+  // margin-left: -28px !important;
+}
+
+.upload-button:active {
+  background-color: @success-color !important;
+  border: 1px solid @success-color !important;
+  border-radius: 100% !important;
+}
+
+.upload-button::selection {
+  background-color: @success-color !important;
+  border: 1px solid @success-color !important;
+  border-radius: 100% !important;
+}
+
+.upload-button:hover {
+  background-color: @success-color !important;
+  border: 1px solid @success-color !important;
+  border-radius: 100% !important;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.upload-button > svg {
+  color: #fff !important;
+  margin-top: 3px;
+}
+
+.user-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0px solid #fff;
+}
+
+.user-upload-avatar {
+  width: 100px !important;
+  height: 100px !important;
+  background-color: @secondary-color !important;
+  vertical-align: "middle" !important;
+}
+
+span.ant-avatar.ant-avatar-circle.user-upload-avatar > span {
+  font-size: 38px;
+}
