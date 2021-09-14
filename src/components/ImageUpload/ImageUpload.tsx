@@ -8,12 +8,13 @@ import "./ImageUpload.style.less";
 
 type ImageUploadProps = {
   userName: string;
+  img?: string;
 };
 
-export default function ImageUpload({ userName }: ImageUploadProps) {
+export default function ImageUpload({ userName, img }: ImageUploadProps) {
   const [imgList, setImgList] =
     useState<{ uid: string; name: string; status: string; url: string }>();
-  const [imgSrc, setImgSrc] = useState("");
+  const [imgSrc, setImgSrc] = useState(img);
 
   const onChange = ({ fileList: newFileList }) => {
     console.log("newFileList ", newFileList);

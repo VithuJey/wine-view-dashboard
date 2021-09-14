@@ -73,7 +73,7 @@ const NavBar = ({ menu }: any) => {
                 </Col>
                 <Col flex="0.1" className="col-user">
                   <p className="user-name">Mary Jane</p>
-                  <p className="email">maryjane@gmail.com</p>
+                  <p className="email">admin@winegood.com</p>
                 </Col>
               </>
             )}

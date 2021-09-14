@@ -9,9 +9,10 @@ type ButtonProps = {
   title: string;
   size: SizeType;
   icon: ReactElement<IconType, IconType>;
+  htmlType?: "button" | "submit" | "reset";
 };
 
-export default function Button({ title, size, icon }: ButtonProps) {
+export default function Button({ title, size, icon, htmlType }: ButtonProps) {
   return (
     <AntButton
       className="button"
@@ -19,6 +20,7 @@ export default function Button({ title, size, icon }: ButtonProps) {
       shape="round"
       icon={icon}
       size={size}
+      htmlType={htmlType}
     >
       {title}
     </AntButton>
