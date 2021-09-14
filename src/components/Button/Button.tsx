@@ -6,23 +6,44 @@ import "./Button.style.less";
 import "antd/es/button/style";
 
 type ButtonProps = {
+  type?: "contained" | "outlined";
   title: string;
   size: SizeType;
   icon: ReactElement<IconType, IconType>;
   htmlType?: "button" | "submit" | "reset";
 };
 
-export default function Button({ title, size, icon, htmlType }: ButtonProps) {
-  return (
-    <AntButton
-      className="button"
-      type="primary"
-      shape="round"
-      icon={icon}
-      size={size}
-      htmlType={htmlType}
-    >
-      {title}
-    </AntButton>
-  );
+export default function Button({
+  type = "contained",
+  title,
+  size,
+  icon,
+  htmlType,
+}: ButtonProps) {
+  if (type === "contained")
+    return (
+      <AntButton
+        className="button-contained"
+        type="primary"
+        shape="round"
+        icon={icon}
+        size={size}
+        htmlType={htmlType}
+      >
+        {title}
+      </AntButton>
+    );
+  else if (type === "outlined")
+    return (
+      <AntButton
+        className="button-outlined"
+        type="default"
+        shape="round"
+        icon={icon}
+        size={size}
+        htmlType={htmlType}
+      >
+        {title}
+      </AntButton>
+    );
 }

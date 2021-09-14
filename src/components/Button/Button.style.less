@@ -1,31 +1,55 @@
 @button-height: 40px;
 
-.button {
+.button-contained {
   width: 140px;
   height: @button-height !important;
   border-radius: 30px;
-  background-image: linear-gradient(to right, #c7158c, #90278e) !important;
-  border-color: #90278e !important;
-  // display: flex !important;
-  // justify-content: center !important;
-  // align-items: center !important;
+  background-image: linear-gradient(
+    to right,
+    @secondary-color,
+    @primary-color
+  ) !important;
+  border-color: @primary-color !important;
 }
 
-.button::selection {
-  background-image: linear-gradient(to right, #c7158c, #90278e) !important;
+.button-contained::selection {
+  background-image: linear-gradient(
+    to right,
+    @secondary-color,
+    @primary-color
+  ) !important;
 }
 
-// .button > svg {
-//   font-size: 20px !important;
-//   vertical-align: baseline !important;
-// }
-
-.button > span {
-  // padding-left: 18px !important;
+.button-contained > span {
   font-size: 20px !important;
   font-weight: bold !important;
 }
 
-.button:hover {
+.button-contained:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.button-outlined {
+  width: 140px;
+  height: @button-height !important;
+  border-radius: 30px;
+  color: @secondary-color !important;
+  border: 2px solid @secondary-color !important;
+}
+
+.button-outlined::selection {
+  background-image: linear-gradient(
+    to right,
+    @secondary-color,
+    @primary-color
+  ) !important;
+}
+
+.button-outlined > span {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+.button-outlined:hover {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
