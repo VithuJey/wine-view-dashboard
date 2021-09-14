@@ -9,7 +9,7 @@ import { FaSave } from "react-icons/fa";
 import { SaveOutlined } from "@ant-design/icons";
 import FormLayout from "../../components/ContentLayouts/FormLayout";
 
-const renderLabel = (label: string) => {
+export const renderLabel = (label: string) => {
   return <p className="form-label">{label}</p>;
 };
 

@@ -26,7 +26,7 @@ const renderContent = (selectedKey: string) => {
 };
 
 function MainLayout() {
-  const [selectedKey, setSelectedKey] = useState("2");
+  const [selectedKey, setSelectedKey] = useState("1.2");
   const changeSelectedKey = (event: { key: any }) => {
     const key = event.key;
     setSelectedKey(key);
