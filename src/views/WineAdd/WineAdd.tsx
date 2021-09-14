@@ -35,15 +35,19 @@ function WineAdd() {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
-        initialValues={{
-          wineName: "Tempranillo",
-          description:
-            "Wines range in style from rosé to red. It is from regions of Rioja and Ribera del Duerol.",
-          grapeVarietal: "Red Grapes",
-          region: "Spain",
-          vintage: "1990",
-          alcoholPercent: "40",
-        }}
+        initialValues={
+          formState === "add"
+            ? {}
+            : {
+                wineName: "Tempranillo",
+                description:
+                  "Wines range in style from rosé to red. It is from regions of Rioja and Ribera del Duerol.",
+                grapeVarietal: "Red Grapes",
+                region: "Spain",
+                vintage: "1990",
+                alcoholPercent: "40",
+              }
+        }
       >
         <Form.Item name="userLogo">
           <ImageUpload
@@ -98,9 +102,9 @@ function WineAdd() {
             />
           </Form.Item>
           <Form.Item
-            label={renderLabel("Alcohol %")}
+            label={renderLabel("Alcohol")}
             name="alcoholPercent"
-            rules={[{ required: true, message: "Alcohol % Missing" }]}
+            rules={[{ required: true, message: "Alcohol Missing" }]}
           >
             {/* <Input className="form-input-field" /> */}
             <InputNumber
