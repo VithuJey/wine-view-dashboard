@@ -17,13 +17,13 @@ export default function ImageUpload({
   img,
   showUploadIcon,
 }: ImageUploadProps) {
-  const [imgList, setImgList] =
-    useState<{ uid: string; name: string; status: string; url: string }>();
+  // const [imgList, setImgList] =
+  //   useState<{ uid: string; name: string; status: string; url: string }>();
   const [imgSrc, setImgSrc] = useState(img);
 
   const onChange = ({ fileList: newFileList }) => {
     console.log("newFileList ", newFileList);
-    setImgList(newFileList);
+    // setImgList(newFileList);
     setImgSrc(
       "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=40"
     );
@@ -39,7 +39,7 @@ export default function ImageUpload({
   return (
     <>
       {imgSrc ? (
-        <img src={imgSrc} className="user-image" />
+        <img src={imgSrc} className="user-image" alt="profile-pic" />
       ) : (
         <Avatar className="user-upload-avatar" size={100} shape="circle">
           {userName[0]}

@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  Redirect,
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.less";
 import MainLayout from "./views/MainLayout/MainLayout";
 import Dashboard from "./views/Dashboard/Dashboard";
@@ -13,20 +8,20 @@ import WineAdd from "./views/WineAdd/WineAdd";
 import Account from "./views/Account/Account";
 
 // @ts-ignore
-function PrivateRoute({ Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        localStorage.getItem("token") && localStorage.getItem("user") ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        )
-      }
-    />
-  );
-}
+// function PrivateRoute({ Component, ...rest }) {
+//   return (
+//     <Route
+//       {...rest}
+//       render={(props) =>
+//         localStorage.getItem("token") && localStorage.getItem("user") ? (
+//           <Component {...props} />
+//         ) : (
+//           <Redirect to="/login" />
+//         )
+//       }
+//     />
+//   );
+// }
 
 function App() {
   return (

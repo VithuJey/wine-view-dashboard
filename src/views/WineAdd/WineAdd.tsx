@@ -12,8 +12,6 @@ import DatePicker from "../../components/DatePicker/DatePicker";
 import CloseOutlined from "@ant-design/icons/lib/icons/CloseOutlined";
 import { useLocation, useParams } from "react-router-dom";
 
-const { TextArea } = Input;
-
 function WineAdd() {
   const { pathname } = useLocation();
   const { id }: { id: string } = useParams();
@@ -55,7 +53,7 @@ function WineAdd() {
         alcoholPercent: "40",
       });
     }
-  }, [id]);
+  }, [form, pathname, id]);
 
   const onFinish = (values: any) => {
     console.log("Success:", values);

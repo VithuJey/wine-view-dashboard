@@ -1,11 +1,10 @@
 import React from "react";
-import { Col, Form, Grid, Input, Row } from "antd";
+import { Form, Input } from "antd";
 import "./Account.style.less";
 import ImageUpload from "../../components/ImageUpload/ImageUpload";
 import "antd/es/input/style";
 import "antd/es/form/style";
 import Button from "../../components/Button/Button";
-import { FaSave } from "react-icons/fa";
 import { SaveOutlined } from "@ant-design/icons";
 import FormLayout from "../../components/Layouts/FormLayout";
 

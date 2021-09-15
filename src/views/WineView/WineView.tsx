@@ -1,11 +1,10 @@
-import { Row, Space, Table } from "antd";
+import { Row, Space, Table, Button as AntButton } from "antd";
 import React from "react";
 import Button from "../../components/Button/Button";
-import { GoPlus } from "react-icons/go";
 import "./WineView.style.less";
 import PlusOutlined from "@ant-design/icons/lib/icons/PlusOutlined";
 import "antd/es/table/style";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const columns = [
   {
@@ -64,7 +63,9 @@ const columns = [
         <Link to="/wine/edit/123456" style={{ color: "#C7158C" }}>
           Edit
         </Link>
-        <a style={{ color: "red" }}>Delete</a>
+        <AntButton type="link" style={{ color: "red" }}>
+          Delete
+        </AntButton>
       </Space>
     ),
   },
@@ -107,11 +108,6 @@ const dataSource = [
 ];
 
 function WineView() {
-  const history = useHistory();
-
-  const onRowClick = (event) => {
-    history.push("/wine/view/123456");
-  };
   return (
     <div>
       <Row className="table-header" justify="space-between">

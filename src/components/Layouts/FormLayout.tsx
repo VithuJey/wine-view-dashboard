@@ -27,7 +27,7 @@ export default function FormLayout({
           <div className="form">{children}</div>
         </Col>
         <Col className="col-cover" flex="0.6">
-          <img className="cover-img" src={coverImgSrc} />
+          <img className="cover-img" src={coverImgSrc} alt="cover-pic" />
         </Col>
       </Row>
     </div>
