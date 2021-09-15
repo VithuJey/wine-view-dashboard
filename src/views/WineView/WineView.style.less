@@ -1,33 +1,62 @@
-.content-title {
+.table-title {
   color: @secondary-color;
   font-size: 32px;
   font-weight: normal;
   line-height: 32px;
 }
 
-.content-header {
+.table-header {
   height: 60px;
 }
 
-.content-body {
+.table-body {
   position: relative;
-  // background-color: black;
   width: 100%;
   height: 630px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  // flex-flow: nowrap !important;
 }
 
-.add-icon {
-  width: 20px !important;
-  height: 20px !important;
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 10px;
 }
 
-@media only screen and (max-width: 768px) {
-  .content-body {
-    position: relative;
-    // background-color: black;
-    width: 100%;
-    height: 100vh;
-    border-radius: 10px;
-  }
+.table {
+  width: 100%;
+  border-radius: 50% !important;
+}
+
+// div.ant-row.content-body
+//   > div.table
+//   > div.ant-spin-nested-loading
+//   > div.ant-spin-container
+//   > ul.ant-pagination {
+//   margin-right: 30px;
+// }
+
+div.ant-table
+  > div.ant-table-container
+  > div.ant-table-content
+  > table
+  > thead.ant-table-thead
+  > tr
+  > th {
+  background-color: rgba(199, 21, 140, 0.2);
+}
+
+div.ant-table
+  > div.ant-table-container
+  > div.ant-table-content
+  > table
+  > thead.ant-table-thead
+  > tr {
+  border-radius: 200px !important;
 }

@@ -1,52 +1,57 @@
 import React from "react";
-import { Menu } from "antd";
+import { Menu as AntMenu } from "antd";
 import SubMenu from "antd/lib/menu/SubMenu";
 import { AiFillAppstore } from "react-icons/ai";
 import { FaWineGlassAlt, FaRegUser } from "react-icons/fa";
-import "./MainMenu.style.less";
+import "./Menu.style.less";
+import { Link } from "react-router-dom";
 
-const MainMenu = ({ selectedKey, changeSelectedKey }: any) => {
+const Menu = ({ selectedKey, changeSelectedKey }: any) => {
   return (
-    <Menu className="menu" mode="inline" selectedKeys={[selectedKey]}>
-      <Menu.Item
+    <AntMenu className="menu" mode="inline" selectedKeys={[selectedKey]}>
+      <AntMenu.Item
         className="menu-item"
         key="0"
         onClick={changeSelectedKey}
         icon={<AiFillAppstore size={30} className="menu-icon" />}
       >
-        Dashboard
-      </Menu.Item>
+        <span>Dashboard</span>
+        <Link to="/" />
+      </AntMenu.Item>
       <SubMenu
         className="sub-menu"
         key="1"
         icon={<FaWineGlassAlt size={30} className="sub-menu-icon" />}
         title="Wine"
       >
-        <Menu.Item
+        <AntMenu.Item
           className="sub-menu-item"
           key="1.1"
           onClick={changeSelectedKey}
         >
-          View
-        </Menu.Item>
-        <Menu.Item
+          <span>View</span>
+          <Link to="/wine/view" />
+        </AntMenu.Item>
+        <AntMenu.Item
           className="sub-menu-item"
           key="1.2"
           onClick={changeSelectedKey}
         >
-          Add
-        </Menu.Item>
+          <span>Add</span>
+          <Link to="/wine/add" />
+        </AntMenu.Item>
       </SubMenu>
-      <Menu.Item
+      <AntMenu.Item
         className="menu-item"
         key="2"
         onClick={changeSelectedKey}
         icon={<FaRegUser size={25} className="menu-icon" />}
       >
-        Account
-      </Menu.Item>
-    </Menu>
+        <span>Account</span>
+        <Link to="/account" />
+      </AntMenu.Item>
+    </AntMenu>
   );
 };
 
-export default MainMenu;
+export default Menu;

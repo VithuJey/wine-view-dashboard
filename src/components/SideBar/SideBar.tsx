@@ -5,7 +5,7 @@ import "./SideBar.style.less";
 
 const { Sider } = Layout;
 
-function SideBar({ menu }: any) {
+function SideBar({ children }: any) {
   return (
     <Sider
       className="sidebar"
@@ -25,7 +25,7 @@ function SideBar({ menu }: any) {
         orientation="center"
         className="sider-col-divider"
       />
-      {menu}
+      {children}
     </Sider>
   );
 }

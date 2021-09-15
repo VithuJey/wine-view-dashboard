@@ -7,7 +7,7 @@ import "antd/es/form/style";
 import Button from "../../components/Button/Button";
 import { FaSave } from "react-icons/fa";
 import { SaveOutlined } from "@ant-design/icons";
-import FormLayout from "../../components/ContentLayouts/FormLayout";
+import FormLayout from "../../components/Layouts/FormLayout";
 
 export const renderLabel = (label: string) => {
   return <p className="form-label">{label}</p>;

@@ -1,20 +1,47 @@
 import SaveOutlined from "@ant-design/icons/lib/icons/SaveOutlined";
 import { Form, Input, InputNumber, Row } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
-import FormLayout from "../../components/ContentLayouts/FormLayout";
+import FormLayout from "../../components/Layouts/FormLayout";
 import ImageUpload from "../../components/ImageUpload/ImageUpload";
 import { renderLabel } from "../Account/Account";
 import "./WineAdd.style.less";
 import "antd/es/input/style";
 import "antd/es/input-number/style";
-import DatePicker from "../../components/DatePicker";
+import DatePicker from "../../components/DatePicker/DatePicker";
 import CloseOutlined from "@ant-design/icons/lib/icons/CloseOutlined";
+import { useParams } from "react-router-dom";
 
 const { TextArea } = Input;
 
 function WineAdd() {
+  const { id }: { id: string } = useParams();
   const [formState, setFormState] = useState<"add" | "edit">("add");
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    console.log(id);
+    if (id) {
+      setFormState("edit");
+      form.setFieldsValue({
+        producer: "Merlot Red",
+        description:
+          "Wines range in style from rosé to red. It is from regions of Rioja and Ribera del Duerol.",
+        grapeVarietal: "Red Grapes",
+        region: "Spain",
+        vintage: new Date(1990),
+        alcoholPercent: "40",
+      });
+    } else
+      form.setFieldsValue({
+        producer: "",
+        description: "",
+        grapeVarietal: "",
+        region: "",
+        vintage: "",
+        alcoholPercent: "",
+      });
+  }, [id]);
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
@@ -31,23 +58,11 @@ function WineAdd() {
     >
       <Form
         name="user-account"
+        form={form}
         layout={"vertical"}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
-        initialValues={
-          formState === "add"
-            ? {}
-            : {
-                wineName: "Tempranillo",
-                description:
-                  "Wines range in style from rosé to red. It is from regions of Rioja and Ribera del Duerol.",
-                grapeVarietal: "Red Grapes",
-                region: "Spain",
-                vintage: "1990",
-                alcoholPercent: "40",
-              }
-        }
       >
         <Form.Item name="userLogo">
           <ImageUpload
@@ -56,9 +71,9 @@ function WineAdd() {
           />
         </Form.Item>
         <Form.Item
-          label={renderLabel("Wine Name")}
-          name="wineName"
-          rules={[{ required: true, message: "Wine Name Missing" }]}
+          label={renderLabel("Producer")}
+          name="producer"
+          rules={[{ required: true, message: "Producer Missing" }]}
         >
           <Input className="form-input-field" />
         </Form.Item>
@@ -102,9 +117,9 @@ function WineAdd() {
             />
           </Form.Item>
           <Form.Item
-            label={renderLabel("Alcohol")}
+            label={renderLabel("Alcohol %")}
             name="alcoholPercent"
-            rules={[{ required: true, message: "Alcohol Missing" }]}
+            rules={[{ required: true, message: "Alcohol % Missing" }]}
           >
             {/* <Input className="form-input-field" /> */}
             <InputNumber
