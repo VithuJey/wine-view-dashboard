@@ -35,9 +35,10 @@ function App() {
         <MainLayout>
           <Switch>
             <Route path="/account" component={Account} />
-            <Route path="/wine/view" component={WineView} />
+            <Route exact path="/wine/view" component={WineView} />
             <Route path="/wine/add" component={WineAdd} />
             <Route path="/wine/edit/:id" component={WineAdd} />
+            <Route path="/wine/view/:id" component={WineAdd} />
             <Route exact path="/" component={Dashboard} />
           </Switch>
         </MainLayout>

@@ -18,6 +18,7 @@ function MainLayout({ children }) {
     if (pathname.includes("account")) setSelectedKey("2");
     else if (pathname.includes("wine/view")) setSelectedKey("1.1");
     else if (pathname.includes("wine/add")) setSelectedKey("1.2");
+    else if (pathname.includes("wine/edit")) setSelectedKey("1.1");
     else setSelectedKey("0");
   }, [pathname]);
 

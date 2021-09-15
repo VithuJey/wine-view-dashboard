@@ -9,9 +9,14 @@ import "./ImageUpload.style.less";
 type ImageUploadProps = {
   userName: string;
   img?: string;
+  showUploadIcon?: boolean;
 };
 
-export default function ImageUpload({ userName, img }: ImageUploadProps) {
+export default function ImageUpload({
+  userName,
+  img,
+  showUploadIcon,
+}: ImageUploadProps) {
   const [imgList, setImgList] =
     useState<{ uid: string; name: string; status: string; url: string }>();
   const [imgSrc, setImgSrc] = useState(img);
@@ -40,19 +45,21 @@ export default function ImageUpload({ userName, img }: ImageUploadProps) {
           {userName[0]}
         </Avatar>
       )}
-      <ImgCrop rotate shape="round" grid>
-        <Upload
-          name="avatar"
-          maxCount={1}
-          showUploadList={false}
-          onChange={onChange}
-          beforeUpload={checkBeforeUpload}
-        >
-          <Button className="upload-button">
-            <HiUpload fontSize="26px" />
-          </Button>
-        </Upload>
-      </ImgCrop>
+      {showUploadIcon && (
+        <ImgCrop rotate shape="round" grid>
+          <Upload
+            name="avatar"
+            maxCount={1}
+            showUploadList={false}
+            onChange={onChange}
+            beforeUpload={checkBeforeUpload}
+          >
+            <Button className="upload-button">
+              <HiUpload fontSize="26px" />
+            </Button>
+          </Upload>
+        </ImgCrop>
+      )}
     </>
   );
 }

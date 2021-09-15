@@ -10,18 +10,29 @@ import "antd/es/input/style";
 import "antd/es/input-number/style";
 import DatePicker from "../../components/DatePicker/DatePicker";
 import CloseOutlined from "@ant-design/icons/lib/icons/CloseOutlined";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const { TextArea } = Input;
 
 function WineAdd() {
+  const { pathname } = useLocation();
   const { id }: { id: string } = useParams();
-  const [formState, setFormState] = useState<"add" | "edit">("add");
+  const [formState, setFormState] = useState<"add" | "edit" | "view">("add");
   const [form] = Form.useForm();
 
   useEffect(() => {
-    console.log(id);
-    if (id) {
+    // console.log(pathname, id);
+    if (pathname.includes("add")) {
+      setFormState("add");
+      form.setFieldsValue({
+        producer: "",
+        description: "",
+        grapeVarietal: "",
+        region: "",
+        vintage: "",
+        alcoholPercent: "",
+      });
+    } else if (pathname.includes("edit")) {
       setFormState("edit");
       form.setFieldsValue({
         producer: "Merlot Red",
@@ -32,15 +43,18 @@ function WineAdd() {
         vintage: new Date(1990),
         alcoholPercent: "40",
       });
-    } else
+    } else if (pathname.includes("view")) {
+      setFormState("view");
       form.setFieldsValue({
-        producer: "",
-        description: "",
-        grapeVarietal: "",
-        region: "",
-        vintage: "",
-        alcoholPercent: "",
+        producer: "Merlot Red",
+        description:
+          "Wines range in style from rosé to red. It is from regions of Rioja and Ribera del Duerol.",
+        grapeVarietal: "Red Grapes",
+        region: "Spain",
+        vintage: new Date(1990),
+        alcoholPercent: "40",
       });
+    }
   }, [id]);
 
   const onFinish = (values: any) => {
@@ -53,7 +67,13 @@ function WineAdd() {
 
   return (
     <FormLayout
-      title={formState === "add" ? "Add Wine" : "Edit Wine"}
+      title={
+        formState === "add"
+          ? "Add Wine"
+          : formState === "edit"
+          ? "Edit Wine"
+          : "View Wine"
+      }
       coverImgSrc="https://images.unsplash.com/photo-1590938027555-672ec33abd7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=925&q=80"
     >
       <Form
@@ -68,6 +88,7 @@ function WineAdd() {
           <ImageUpload
             userName="User"
             img="https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+            showUploadIcon={formState === "view" ? false : true}
           />
         </Form.Item>
         <Form.Item
@@ -75,7 +96,11 @@ function WineAdd() {
           name="producer"
           rules={[{ required: true, message: "Producer Missing" }]}
         >
-          <Input className="form-input-field" />
+          <Input
+            className="form-input-field"
+            disabled={formState === "view" ? true : false}
+            bordered={formState === "view" ? false : true}
+          />
         </Form.Item>
         <Form.Item
           label={renderLabel("Description")}
@@ -83,21 +108,34 @@ function WineAdd() {
           rules={[{ required: true, message: "Description Missing" }]}
         >
           {/* <TextArea showCount maxLength={60} className="form-text-area" /> */}
-          <Input maxLength={60} className="form-input-field" />
+          <Input
+            maxLength={60}
+            className="form-input-field"
+            disabled={formState === "view" ? true : false}
+            bordered={formState === "view" ? false : true}
+          />
         </Form.Item>
         <Form.Item
           label={renderLabel("Grape Varietal")}
           name="grapeVarietal"
           rules={[{ required: true, message: "Grape Varietal Missing" }]}
         >
-          <Input className="form-input-field" />
+          <Input
+            className="form-input-field"
+            disabled={formState === "view" ? true : false}
+            bordered={formState === "view" ? false : true}
+          />
         </Form.Item>
         <Form.Item
           label={renderLabel("Region")}
           name="region"
           rules={[{ required: true, message: "Region Missing" }]}
         >
-          <Input className="form-input-field" />
+          <Input
+            className="form-input-field"
+            disabled={formState === "view" ? true : false}
+            bordered={formState === "view" ? false : true}
+          />
         </Form.Item>
         {/* Vintage & Alcohol% */}
         <Row justify="space-between">
@@ -114,6 +152,8 @@ function WineAdd() {
               onChange={(date, dateString) => {
                 console.log(date, dateString);
               }}
+              disabled={formState === "view" ? true : false}
+              bordered={formState === "view" ? false : true}
             />
           </Form.Item>
           <Form.Item
@@ -131,36 +171,40 @@ function WineAdd() {
               // @ts-ignore
               parser={(value) => value.replace("%", "")}
               // onChange={onChange}
+              disabled={formState === "view" ? true : false}
+              bordered={formState === "view" ? false : true}
             />
           </Form.Item>
         </Row>
 
-        <Form.Item>
-          {formState === "add" ? (
-            <Button
-              title="Save"
-              htmlType={"submit"}
-              size={"small"}
-              icon={<SaveOutlined />}
-            />
-          ) : (
-            <Row justify="space-around">
+        {formState !== "view" && (
+          <Form.Item>
+            {formState === "add" ? (
               <Button
-                type="outlined"
-                title="Cancel"
-                htmlType={"button"}
-                size={"small"}
-                icon={<CloseOutlined />}
-              />
-              <Button
-                title="Update"
+                title="Save"
                 htmlType={"submit"}
                 size={"small"}
                 icon={<SaveOutlined />}
               />
-            </Row>
-          )}
-        </Form.Item>
+            ) : (
+              <Row justify="space-around">
+                <Button
+                  type="outlined"
+                  title="Cancel"
+                  htmlType={"button"}
+                  size={"small"}
+                  icon={<CloseOutlined />}
+                />
+                <Button
+                  title="Update"
+                  htmlType={"submit"}
+                  size={"small"}
+                  icon={<SaveOutlined />}
+                />
+              </Row>
+            )}
+          </Form.Item>
+        )}
       </Form>
     </FormLayout>
   );

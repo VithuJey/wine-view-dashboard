@@ -5,13 +5,15 @@ import { GoPlus } from "react-icons/go";
 import "./WineView.style.less";
 import PlusOutlined from "@ant-design/icons/lib/icons/PlusOutlined";
 import "antd/es/table/style";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const columns = [
   {
     title: "Producer",
     dataIndex: "producer",
     key: "producer",
+    responsive: ["xs", "sm", "md", "md"],
+    render: (producer) => <Link to="/wine/view/123456">{producer}</Link>,
   },
   {
     title: "Picture",
@@ -20,32 +22,38 @@ const columns = [
     render: (picture) => (
       <img src={picture} className="user-avatar" alt="wine pic" />
     ),
+    responsive: ["xs", "sm", "md", "md"],
   },
   {
     title: "Vintage",
     dataIndex: "vintage",
     key: "vintage",
+    responsive: ["sm", "md", "lg"],
   },
   {
     title: "Description",
     dataIndex: "description",
     key: "description",
+    responsive: ["lg"],
   },
   {
     title: "Grape Varietal",
     dataIndex: "grapeVarietal",
     key: "grapeVarietal",
+    responsive: ["lg"],
   },
   {
     title: "Region",
     dataIndex: "region",
     key: "region",
+    responsive: ["lg"],
   },
   {
     title: "Alcohol %",
     dataIndex: "alcohol",
     key: "alcohol",
     render: (alcohol) => `${alcohol} %`,
+    responsive: ["lg"],
   },
   {
     title: "Action",
@@ -99,6 +107,11 @@ const dataSource = [
 ];
 
 function WineView() {
+  const history = useHistory();
+
+  const onRowClick = (event) => {
+    history.push("/wine/view/123456");
+  };
   return (
     <div>
       <Row className="table-header" justify="space-between">
@@ -109,12 +122,18 @@ function WineView() {
         <Table
           className="table"
           dataSource={dataSource}
+          // @ts-ignore
           columns={columns}
           pagination={{
             pageSize: 6,
             position: ["bottomLeft"],
             hideOnSinglePage: true,
           }}
+          // onRow={(record, rowIndex) => {
+          //   return {
+          //     onClick: onRowClick,
+          //   };
+          // }}
         />
       </Row>
     </div>
