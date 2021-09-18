@@ -22,14 +22,6 @@ const getFontSize = (title: string, xs: boolean) => {
     else return 16;
 };
 
-const getCSS = (cardNo: number) => {
-  if (cardNo === 0) return "card-0";
-  if (cardNo === 1) return "card-1";
-  if (cardNo === 2) return "card-2";
-  if (cardNo === 3) return "card-3";
-  if (cardNo === 4) return "card-4";
-};
-
 type CardProps = {
   cardNo: string;
   imgSrc: string;
@@ -57,7 +49,7 @@ export default function Card({
     setEnableButton(
       !!selectedCards.find((selectedCard: string) => selectedCard === cardNo)
     );
-  }, [selectedCards]);
+  }, [selectedCards, cardNo]);
 
   const onClickCard = useCallback(() => {
     let index = selectedCards.findIndex(
@@ -81,7 +73,7 @@ export default function Card({
         selectedCards.splice(index, 1);
         return [...selectedCards];
       });
-  }, [selectedCards]);
+  }, [selectedCards, cardNo, setSelectedCards]);
 
   return (
     <Row
