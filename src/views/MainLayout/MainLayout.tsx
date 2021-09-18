@@ -5,10 +5,12 @@ import Menu from "../../components/Menu/Menu";
 import NavBar from "../../components/NavBar/NavBar";
 import "./MainLayout.style.less";
 import { useLocation } from "react-router-dom";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
 const { Content } = Layout;
 
 function MainLayout({ children }) {
+  const { lg, md } = useBreakpoint();
   const { pathname } = useLocation();
   console.log("useLocation ", pathname);
 
@@ -27,11 +29,29 @@ function MainLayout({ children }) {
     setSelectedKey(key);
   };
 
-  return (
-    <Layout>
-      <SideBar>
-        <Menu selectedKey={selectedKey} changeSelectedKey={changeSelectedKey} />
-      </SideBar>
+  if (lg || md)
+    return (
+      <Layout>
+        <SideBar>
+          <Menu
+            selectedKey={selectedKey}
+            changeSelectedKey={changeSelectedKey}
+          />
+        </SideBar>
+        <Layout>
+          <NavBar>
+            <Menu
+              selectedKey={selectedKey}
+              changeSelectedKey={changeSelectedKey}
+            />
+          </NavBar>
+          <Content className="content">{children}</Content>
+          <div style={{ height: 40 }} />
+        </Layout>
+      </Layout>
+    );
+  else
+    return (
       <Layout>
         <NavBar>
           <Menu
@@ -42,8 +62,7 @@ function MainLayout({ children }) {
         <Content className="content">{children}</Content>
         <div style={{ height: 40 }} />
       </Layout>
-    </Layout>
-  );
+    );
 }
 
 export default MainLayout;

@@ -1,5 +1,5 @@
-import { Col, Row, Grid } from "antd";
-import React from "react";
+import { Row } from "antd";
+import React, { useState } from "react";
 import Card from "../../components/Card/Card";
 import "./Dashboard.style.less";
 import SESSION_LOGO from "../../assets/Images/session.svg";
@@ -7,10 +7,9 @@ import WINE_SAVED_LOGO from "../../assets/Images/wine-saved.svg";
 import WINE_SHARED_LOGO from "../../assets/Images/wine-shared.svg";
 import POPULAR_WINE_LOGO from "../../assets/Images/popular-wine.svg";
 import TRANSACTION_LOGO from "../../assets/Images/transaction.svg";
-import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
 function Dashboard() {
-  const { lg, md, sm, xs } = useBreakpoint();
+  const [selectedCards, setSelectedCards] = useState([]);
 
   return (
     <div>

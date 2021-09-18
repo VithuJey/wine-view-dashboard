@@ -17,14 +17,16 @@ const NavBar = ({ children }: any) => {
 
   return (
     <nav className="navbar" style={{ backgroundColor: lg ? "#fff" : "#111" }}>
-      <Drawer
-        className="drawer"
-        placement="left"
-        onClose={() => setVisible(false)}
-        visible={visible}
-      >
-        {children}
-      </Drawer>
+      {!lg && (
+        <Drawer
+          className="drawer"
+          placement="left"
+          onClose={() => setVisible(false)}
+          visible={visible}
+        >
+          {children}
+        </Drawer>
+      )}
       <Row justify="space-between" align="middle">
         <Col flex="1">
           <Row justify="start" align="middle">
