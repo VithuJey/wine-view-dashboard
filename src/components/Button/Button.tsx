@@ -11,6 +11,7 @@ type ButtonProps = {
   size: SizeType;
   icon: ReactElement<IconType, IconType>;
   htmlType?: "button" | "submit" | "reset";
+  onClick?: React.MouseEventHandler<HTMLElement>;
 };
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   size,
   icon,
   htmlType,
+  onClick,
 }: ButtonProps) {
   if (type === "contained")
     return (
@@ -29,6 +31,7 @@ export default function Button({
         icon={icon}
         size={size}
         htmlType={htmlType}
+        onClick={onClick}
       >
         {title}
       </AntButton>
@@ -42,6 +45,7 @@ export default function Button({
         icon={icon}
         size={size}
         htmlType={htmlType}
+        onClick={onClick}
       >
         {title}
       </AntButton>

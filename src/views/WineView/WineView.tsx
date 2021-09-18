@@ -5,6 +5,7 @@ import "./WineView.style.less";
 import PlusOutlined from "@ant-design/icons/lib/icons/PlusOutlined";
 import "antd/es/table/style";
 import { Link } from "react-router-dom";
+import Modal from "../../components/Modal/Modal";
 
 const columns = [
   {
@@ -21,7 +22,7 @@ const columns = [
     render: (picture) => (
       <img src={picture} className="user-avatar" alt="wine pic" />
     ),
-    responsive: ["xs", "sm", "md", "md"],
+    responsive: ["sm", "md", "md"],
   },
   {
     title: "Vintage",
@@ -108,11 +109,21 @@ const dataSource = [
 ];
 
 function WineView() {
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+
   return (
     <div>
       <Row className="table-header" justify="space-between">
         <p className="table-title">View Wine</p>
-        <Button title="Add" size="large" icon={<PlusOutlined />} />
+        <Button
+          title="Add"
+          size="large"
+          icon={<PlusOutlined />}
+          onClick={() => {
+            setIsModalVisible(true);
+          }}
+        />
+        <Modal isVisible={isModalVisible} setIsVisible={setIsModalVisible} />
       </Row>
       <Row className="table-body">
         <Table
