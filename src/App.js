@@ -7,6 +7,7 @@ import WineView from "./views/WineView/WineView";
 import WineAdd from "./views/WineAdd/WineAdd";
 import Account from "./views/Account/Account";
 import Chart from "./views/Chart/Chart";
+// import Login from "./views/Login/Login";
 
 // @ts-ignore
 // function PrivateRoute({ Component, ...rest }) {
@@ -28,6 +29,7 @@ function App() {
   return (
     <Router>
       <Switch>
+        {/* <Route path="/" component={Login} /> */}
         <MainLayout>
           <Switch>
             <Route path="/account" component={Account} />

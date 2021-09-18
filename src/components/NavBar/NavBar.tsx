@@ -81,7 +81,7 @@ const NavBar = ({ children }: any) => {
             )}
             <Col flex="0.1">
               <Row justify="end" align="middle">
-                <a href="/">
+                <a href="/account">
                   <img src={UserAvatar} className="user-avatar" alt="logo" />
                 </a>
               </Row>
