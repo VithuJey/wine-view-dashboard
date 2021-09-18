@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { hexToRGB } from "../../utils/hexToRGB";
 import "./Card.style.less";
 
@@ -22,39 +22,66 @@ const getFontSize = (title: string, xs: boolean) => {
     else return 16;
 };
 
-const getCSS = (key: number) => {
-  if (key === 0) return "card-0";
-  if (key === 1) return "card-1";
-  if (key === 2) return "card-2";
-  if (key === 3) return "card-3";
-  if (key === 4) return "card-4";
+const getCSS = (cardNo: number) => {
+  if (cardNo === 0) return "card-0";
+  if (cardNo === 1) return "card-1";
+  if (cardNo === 2) return "card-2";
+  if (cardNo === 3) return "card-3";
+  if (cardNo === 4) return "card-4";
 };
 
 type CardProps = {
-  key: number;
+  cardNo: string;
   imgSrc: string;
   color: string;
   title: string;
   count: string;
+  selectedCards: Array<string>;
   setSelectedCards: any;
 };
 
 export default function Card({
-  key,
+  cardNo,
   imgSrc,
   color,
   title,
   count,
+  selectedCards,
   setSelectedCards,
 }: CardProps) {
   const [enableButton, setEnableButton] = useState(false);
-
   const { xs } = useBreakpoint();
 
-  const onClickCard = () => {
-    setEnableButton((prevState) => !prevState);
-    setSelectedCards(key);
-  };
+  useEffect(() => {
+    console.log(selectedCards);
+    setEnableButton(
+      !!selectedCards.find((selectedCard: string) => selectedCard === cardNo)
+    );
+  }, [selectedCards]);
+
+  const onClickCard = useCallback(() => {
+    let index = selectedCards.findIndex(
+      (selectedCard: string) => selectedCard === cardNo
+    );
+    if (index === -1)
+      if (cardNo === "0" || cardNo === "3" || cardNo === "4")
+        setSelectedCards([cardNo]);
+      else {
+        if (
+          selectedCards.includes("0") ||
+          selectedCards.includes("3") ||
+          selectedCards.includes("4")
+        )
+          setSelectedCards([cardNo]);
+        else
+          setSelectedCards((selectedCards: []) => [...selectedCards, cardNo]);
+      }
+    else
+      setSelectedCards((selectedCards: []) => {
+        selectedCards.splice(index, 1);
+        return [...selectedCards];
+      });
+  }, [selectedCards]);
 
   return (
     <Row

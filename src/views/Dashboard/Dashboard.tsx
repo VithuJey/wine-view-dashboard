@@ -1,4 +1,4 @@
-import { Row } from "antd";
+import { DatePicker, Row } from "antd";
 import React, { useState } from "react";
 import Card from "../../components/Card/Card";
 import "./Dashboard.style.less";
@@ -7,38 +7,44 @@ import WINE_SAVED_LOGO from "../../assets/Images/wine-saved.svg";
 import WINE_SHARED_LOGO from "../../assets/Images/wine-shared.svg";
 import POPULAR_WINE_LOGO from "../../assets/Images/popular-wine.svg";
 import TRANSACTION_LOGO from "../../assets/Images/transaction.svg";
+import ColumnChart from "../../components/Chart/ColumnChart";
+
+import "antd/es/date-picker/style";
+import StackedChart from "../../components/Chart/StackedChart";
+
+const { RangePicker } = DatePicker;
 
 const cardDetails = [
   {
-    key: 0,
+    cardNo: "0",
     imgSrc: SESSION_LOGO,
     color: "#c7158c",
     title: "Sessions",
     count: "44",
   },
   {
-    key: 1,
+    cardNo: "1",
     imgSrc: WINE_SAVED_LOGO,
     color: "#8E278C",
     title: "Wines Saved",
     count: "38",
   },
   {
-    key: 2,
+    cardNo: "2",
     imgSrc: WINE_SHARED_LOGO,
     color: "#EEB55F",
     title: "Wines Shared",
     count: "11",
   },
   {
-    key: 3,
+    cardNo: "3",
     imgSrc: POPULAR_WINE_LOGO,
     color: "#2A336F",
     title: "Most/Least Popular Wines",
     count: "26",
   },
   {
-    key: 4,
+    cardNo: "4",
     imgSrc: TRANSACTION_LOGO,
     color: "#3D488C",
     title: "Estimated Transactions",
@@ -47,7 +53,7 @@ const cardDetails = [
 ];
 
 function Dashboard() {
-  const [selectedCards, setSelectedCards] = useState([]);
+  const [selectedCards, setSelectedCards] = useState<Array<string>>(["0"]);
 
   return (
     <div>
@@ -55,18 +61,39 @@ function Dashboard() {
         <p className="dashboard-title">Dashboard</p>
       </Row>
       <div className="dashboard-body">
-        <div className="card-parent">
+        <div className="card-container">
           {cardDetails.map((detail) => (
             <Card
-              key={detail.key}
+              cardNo={detail.cardNo}
               imgSrc={detail.imgSrc}
               color={detail.color}
               title={detail.title}
               count={detail.count}
+              selectedCards={selectedCards}
               setSelectedCards={setSelectedCards}
             />
           ))}
         </div>
+
+        {selectedCards.length !== 0 ? (
+          <div className="chart-container">
+            {selectedCards.includes("1") && selectedCards.includes("2") ? (
+              <StackedChart />
+            ) : (
+              <>
+                <Row justify="end">
+                  <RangePicker
+                    className="range-picker"
+                    placeholder={["From date", "To date"]}
+                  />
+                </Row>
+                <ColumnChart className="column-chart" />
+              </>
+            )}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

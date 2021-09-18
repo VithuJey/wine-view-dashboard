@@ -60,7 +60,7 @@ function MainLayout({ children }) {
           />
         </NavBar>
         <Content className="content">{children}</Content>
-        <div style={{ height: 40 }} />
+        <div style={{ minHeight: "20vh" }} />
       </Layout>
     );
 }
