@@ -6,6 +6,7 @@ import Dashboard from "./views/Dashboard/Dashboard";
 import WineView from "./views/WineView/WineView";
 import WineAdd from "./views/WineAdd/WineAdd";
 import Account from "./views/Account/Account";
+import Chart from "./views/Chart/Chart";
 
 // @ts-ignore
 // function PrivateRoute({ Component, ...rest }) {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/wine/add" component={WineAdd} />
             <Route path="/wine/edit/:id" component={WineAdd} />
             <Route path="/wine/view/:id" component={WineAdd} />
+            <Route path="/chart/:name" component={Chart} />
             <Route exact path="/" component={Dashboard} />
           </Switch>
         </MainLayout>

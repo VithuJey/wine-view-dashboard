@@ -16,7 +16,7 @@ export default function FormLayout({
   coverImgSrc,
 }: FormLayoutProps) {
   const { lg, md, sm } = useBreakpoint();
-  console.log(lg, md, sm);
+  // console.log(lg, md, sm);
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Row className="content-header" justify="space-between">

@@ -8,9 +8,10 @@ import WINE_SHARED_LOGO from "../../assets/Images/wine-shared.svg";
 import POPULAR_WINE_LOGO from "../../assets/Images/popular-wine.svg";
 import TRANSACTION_LOGO from "../../assets/Images/transaction.svg";
 import ColumnChart from "../../components/Chart/ColumnChart";
-
 import "antd/es/date-picker/style";
 import StackedChart from "../../components/Chart/StackedChart";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
+import { useHistory } from "react-router";
 
 const { RangePicker } = DatePicker;
 
@@ -53,7 +54,23 @@ const cardDetails = [
 ];
 
 function Dashboard() {
-  const [selectedCards, setSelectedCards] = useState<Array<string>>(["0"]);
+  const { xs } = useBreakpoint();
+  const history = useHistory();
+
+  const [selectedCards, setSelectedCards] = useState<Array<string>>([]);
+
+  React.useEffect(() => {
+    if (xs !== undefined) {
+      console.log("useEffect xs ", xs);
+      !xs && setSelectedCards(["0"]);
+    }
+  }, [xs]);
+
+  React.useEffect(() => {
+    if (selectedCards.length > 0) {
+      xs && history.push(`/chart/${selectedCards}`);
+    }
+  }, [xs, selectedCards]);
 
   return (
     <div>
@@ -75,7 +92,7 @@ function Dashboard() {
           ))}
         </div>
 
-        {selectedCards.length !== 0 ? (
+        {!xs && selectedCards.length !== 0 ? (
           <div className="chart-container">
             {selectedCards.includes("1") && selectedCards.includes("2") ? (
               <StackedChart />

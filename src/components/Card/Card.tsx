@@ -81,7 +81,7 @@ export default function Card({
       style={{
         backgroundColor: color,
         userSelect: "none",
-        boxShadow: enableButton && "0 0 0 10pt " + hexToRGB(color),
+        boxShadow: enableButton && "0 0 0 5pt " + hexToRGB(color),
         transition: enableButton && "0.4s",
         transitionTimingFunction: enableButton && "linear",
       }}
