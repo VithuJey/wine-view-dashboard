@@ -4,58 +4,69 @@ import React, { useState } from "react";
 import { hexToRGB } from "../../utils/hexToRGB";
 import "./Card.style.less";
 
+const getFontSize = (title: string, xs: boolean) => {
+  if (title.includes("Sessions"))
+    if (xs) return 12;
+    else return 24;
+  else if (title.includes("Wines Saved"))
+    if (xs) return 12;
+    else return 20;
+  else if (title.includes("Wines Shared"))
+    if (xs) return 12;
+    else return 20;
+  else if (title.includes("Most/Least Popular Wines"))
+    if (xs) return 12;
+    else return 14;
+  else if (title.includes("Estimated Transactions"))
+    if (xs) return 12;
+    else return 16;
+};
+
+const getCSS = (key: number) => {
+  if (key === 0) return "card-0";
+  if (key === 1) return "card-1";
+  if (key === 2) return "card-2";
+  if (key === 3) return "card-3";
+  if (key === 4) return "card-4";
+};
+
 type CardProps = {
+  key: number;
   imgSrc: string;
   color: string;
   title: string;
   count: string;
+  setSelectedCards: any;
 };
 
-export default function Card({ imgSrc, color, title, count }: CardProps) {
+export default function Card({
+  key,
+  imgSrc,
+  color,
+  title,
+  count,
+  setSelectedCards,
+}: CardProps) {
   const [enableButton, setEnableButton] = useState(false);
 
   const { xs } = useBreakpoint();
 
-  const getFontSize = (title: string) => {
-    if (title.includes("Sessions"))
-      if (xs) return 12;
-      else return 24;
-    else if (title.includes("Wines Saved"))
-      if (xs) return 12;
-      else return 20;
-    else if (title.includes("Wines Shared"))
-      if (xs) return 12;
-      else return 20;
-    else if (title.includes("Most/Least Popular Wines"))
-      if (xs) return 12;
-      else return 14;
-    else if (title.includes("Estimated Transactions"))
-      if (xs) return 12;
-      else return 16;
+  const onClickCard = () => {
+    setEnableButton((prevState) => !prevState);
+    setSelectedCards(key);
   };
 
-  const style = {
-    normal: {
-      background: "purple",
-      color: "#ffffff",
-    },
-    hover: {
-      boxShadow: "0 0 0 10pt " + hexToRGB(color),
-      transition: "0.4s",
-      transitionTimingFunction: "linear",
-    },
-  };
   return (
     <Row
-      className={enableButton ? "card-button-wrapper" : "card-wrapper"}
+      className={"card-wrapper"}
       style={{
         backgroundColor: color,
         userSelect: "none",
-        // -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+        boxShadow: enableButton && "0 0 0 10pt " + hexToRGB(color),
+        transition: enableButton && "0.4s",
+        transitionTimingFunction: enableButton && "linear",
       }}
-      onClick={() => {
-        setEnableButton((prevState) => !prevState);
-      }}
+      onClick={onClickCard}
     >
       <Col className="card-left" flex="2">
         <img src={imgSrc} className="icon" alt="card-icon" />
@@ -65,7 +76,7 @@ export default function Card({ imgSrc, color, title, count }: CardProps) {
         <p
           className="title"
           style={{
-            fontSize: getFontSize(title),
+            fontSize: getFontSize(title, xs),
           }}
         >
           {title}
