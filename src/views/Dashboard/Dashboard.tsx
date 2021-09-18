@@ -70,7 +70,7 @@ function Dashboard() {
     if (selectedCards.length > 0) {
       xs && history.push(`/chart/${selectedCards}`);
     }
-  }, [xs, selectedCards]);
+  }, [xs, selectedCards, history]);
 
   return (
     <div>

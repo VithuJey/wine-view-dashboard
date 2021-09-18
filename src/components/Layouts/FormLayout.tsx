@@ -1,8 +1,8 @@
-import { Row, Col, Grid } from "antd";
+import { Row, Col } from "antd";
 import React from "react";
 import "./FormLayout.style.less";
 
-const { useBreakpoint } = Grid;
+// const { useBreakpoint } = Grid;
 
 type FormLayoutProps = {
   children: any;
@@ -15,7 +15,7 @@ export default function FormLayout({
   title,
   coverImgSrc,
 }: FormLayoutProps) {
-  const { lg, md, sm } = useBreakpoint();
+  // const { lg, md, sm } = useBreakpoint();
   // console.log(lg, md, sm);
   return (
     <div style={{ width: "100%", height: "100%" }}>

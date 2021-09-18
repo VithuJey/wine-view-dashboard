@@ -1,11 +1,10 @@
 import React from "react";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import ColumnChart from "../../components/Chart/ColumnChart";
 import StackedChart from "../../components/Chart/StackedChart";
 import DatePicker from "../../components/DatePicker/DatePicker";
 import "antd/es/date-picker/style";
 import { Grid, message, Row } from "antd";
-import id from "date-fns/esm/locale/id/index.js";
 
 const { RangePicker } = DatePicker;
 const { useBreakpoint } = Grid;
@@ -19,7 +18,6 @@ const getCardName = (cardNo: number) => {
 };
 
 export default function Chart() {
-  const { pathname } = useLocation();
   const history = useHistory();
   const { name }: { name: string } = useParams();
   const { lg, md, xs } = useBreakpoint();
@@ -39,8 +37,8 @@ export default function Chart() {
   }, [xs]);
 
   React.useEffect(() => {
-    if (lg) history.push("/");
-  }, [lg, md]);
+    lg && history.push("/");
+  }, [lg, md, history]);
 
   return (
     <div>
