@@ -23,7 +23,7 @@ export default function FormLayout({
         <p className="content-title">{title}</p>
       </Row>
       <Row className="content-body" style={{ width: "100%", height: "100%" }}>
-        <Col className="col-form" flex={0.4}>
+        <Col className="col-form" flex="0.4">
           <div className="form">{children}</div>
         </Col>
         <Col className="col-cover" flex="0.6">

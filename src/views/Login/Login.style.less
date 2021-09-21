@@ -1,0 +1,144 @@
+.auth-container {
+  padding: 80px 120px;
+  background-color: @secondary-color;
+  height: 100vh;
+}
+
+.auth-body {
+  background-color: #fff;
+  border-radius: 10px;
+  flex-flow: nowrap !important;
+}
+
+.img-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.auth-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.auth-col-form {
+  margin-top: 10%;
+}
+
+.auth-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.auth-form > img {
+  margin-top: 100px;
+}
+
+.auth-form > form {
+  width: 60%;
+  margin-top: 60px;
+}
+
+.auth-company-logo {
+  width: 130px;
+  min-height: 130px;
+  border-radius: 20px;
+}
+
+.form-label {
+  margin: 0px !important;
+}
+
+.form-input-field {
+  border-radius: 20px !important;
+  border: 1px solid @secondary-color !important;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 10px;
+}
+
+.text-1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin-top: -10px;
+}
+
+.text-2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 47px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin-top: -20px;
+}
+
+.text-3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.bottom-content {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.auth-button {
+  width: 180px;
+  height: 40px;
+  color: #fff;
+  border-radius: 30px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+}
+
+.signup-button {
+  background: @primary-color;
+  border: 1px solid @primary-color;
+}
+
+.login-button {
+  background: @secondary-color;
+  border: 1px solid @secondary-color;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .auth-col-cover {
+    display: none !important;
+  }
+
+  .auth-col-form {
+    flex: 1 !important;
+  }
+}
