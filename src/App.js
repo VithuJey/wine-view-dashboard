@@ -29,17 +29,15 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/login" component={Login} />
+        <Route exact path="/login" component={Login} />
         <MainLayout>
-          <Switch>
-            <Route path="/account" component={Account} />
-            <Route exact path="/wine/view" component={WineView} />
-            <Route path="/wine/add" component={WineAdd} />
-            <Route path="/wine/edit/:id" component={WineAdd} />
-            <Route path="/wine/view/:id" component={WineAdd} />
-            <Route path="/chart/:name" component={Chart} />
-            <Route exact path="/" component={Dashboard} />
-          </Switch>
+          <Route exact path="/account" component={Account} />
+          <Route exact path="/wine/view" component={WineView} />
+          <Route exact path="/wine/add" component={WineAdd} />
+          <Route exact path="/wine/edit/:id" component={WineAdd} />
+          <Route exact path="/wine/view/:id" component={WineAdd} />
+          <Route exact path="/chart/:name" component={Chart} />
+          <Route exact path="/" component={Dashboard} />
         </MainLayout>
       </Switch>
     </Router>
