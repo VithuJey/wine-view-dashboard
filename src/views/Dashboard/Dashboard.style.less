@@ -1,3 +1,5 @@
+@card-gap: 3rem;
+
 .dashboard-title {
   color: @secondary-color;
   font-size: 32px;
@@ -18,7 +20,11 @@
   flex-direction: row;
   flex-wrap: wrap !important;
   justify-content: space-between;
-  gap: 50px;
+  margin: calc(-1 * @card-gap) 0 0 calc(-1 * @card-gap);
+}
+
+.card-container > * {
+  margin: @card-gap 0 0 @card-gap;
 }
 
 .range-picker {

@@ -24,11 +24,11 @@ export default function Chart() {
 
   const rotateDeviceMessage = () => {
     message.info({
-      content: "Turn your device to landscape mode for better chart view",
+      content: "Turn your device to landscape mode to view the chart better",
       className: "info-message",
-      style: {
-        marginTop: "88vh",
-      },
+      // style: {
+      //   marginTop: "100%",
+      // },
     });
   };
 

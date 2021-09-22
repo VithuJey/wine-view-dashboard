@@ -1,11 +1,14 @@
 import { Row, Col, Form, Input, Button } from "antd";
 import React from "react";
 import LOGO from "@Assets/Images/logo.png";
-import { renderLabel } from "../Account/Account";
 import "./Login.style.less";
 import "antd/es/input/style";
 import "antd/es/form/style";
 import "antd/es/button/style";
+
+const renderLabel = (label: string) => {
+  return <p className="auth-form-label">{label}</p>;
+};
 
 export default function Login() {
   const onFinish = (values: any) => {
@@ -86,6 +89,11 @@ export default function Login() {
                 </Button>
               </Form.Item>
             </Form>
+          </div>
+
+          <div className="signup-content">
+            <p className="text-3">Don’t have an account?</p>
+            <Button className="signup-button auth-button">SIGN UP</Button>
           </div>
         </Col>
       </Row>
