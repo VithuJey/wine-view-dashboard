@@ -5,6 +5,7 @@ import "./Login.style.less";
 import "antd/es/input/style";
 import "antd/es/form/style";
 import "antd/es/button/style";
+import { Link } from "react-router-dom";
 
 const renderLabel = (label: string) => {
   return <p className="auth-form-label">{label}</p>;
@@ -37,7 +38,9 @@ export default function Login() {
               <p className="text-3">Sign in to your account</p>
               <div className="bottom-content">
                 <p className="text-3">Don’t have an account?</p>
-                <Button className="signup-button auth-button">SIGN UP</Button>
+                <Link to="/signup">
+                  <Button className="signup-button auth-button">SIGN UP</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -80,20 +83,24 @@ export default function Login() {
               </Form.Item> */}
 
               <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  className="login-button auth-button"
-                >
-                  LOGIN
-                </Button>
+                <Link to="/">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="login-button auth-button"
+                  >
+                    LOGIN
+                  </Button>
+                </Link>
               </Form.Item>
             </Form>
           </div>
 
           <div className="signup-content">
             <p className="text-3">Don’t have an account?</p>
-            <Button className="signup-button auth-button">SIGN UP</Button>
+            <Link to="/signup">
+              <Button className="signup-button auth-button">SIGN UP</Button>
+            </Link>
           </div>
         </Col>
       </Row>

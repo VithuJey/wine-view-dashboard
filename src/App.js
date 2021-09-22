@@ -10,7 +10,6 @@ import Chart from "./views/Chart/Chart";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 
-// @ts-ignore
 // function PrivateRoute({ Component, ...rest }) {
 //   return (
 //     <Route
@@ -26,21 +25,28 @@ import Register from "./views/Register/Register";
 //   );
 // }
 
+const MainRoute = ({ Component, ...rest }) => {
+  return (
+    <MainLayout>
+      <Route {...rest} render={(props) => <Component {...props} />} />
+    </MainLayout>
+  );
+};
+
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Register} />
-        <MainLayout>
-          <Route exact path="/account" component={Account} />
-          <Route exact path="/wine/view" component={WineView} />
-          <Route exact path="/wine/add" component={WineAdd} />
-          <Route exact path="/wine/edit/:id" component={WineAdd} />
-          <Route exact path="/wine/view/:id" component={WineAdd} />
-          <Route exact path="/chart/:name" component={Chart} />
-          <Route exact path="/" component={Dashboard} />
-        </MainLayout>
+
+        <MainRoute exact path="/account" component={Account} />
+        <MainRoute exact path="/wine/view" component={WineView} />
+        <MainRoute exact path="/wine/add" component={WineAdd} />
+        <MainRoute exact path="/wine/edit/:id" component={WineAdd} />
+        <MainRoute exact path="/wine/view/:id" component={WineAdd} />
+        <MainRoute exact path="/chart/:name" component={Chart} />
+        <MainRoute exact path="/" component={Dashboard} />
       </Switch>
     </Router>
   );
