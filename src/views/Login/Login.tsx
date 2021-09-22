@@ -85,7 +85,7 @@ export default function Login() {
                   htmlType="submit"
                   className="login-button auth-button"
                 >
-                  Login
+                  LOGIN
                 </Button>
               </Form.Item>
             </Form>
