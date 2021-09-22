@@ -4,6 +4,7 @@ import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import LOGO from "@Assets/Images/logo.png";
 import "./NavBar.style.less";
 import { RiLogoutCircleLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const { useBreakpoint } = Grid;
 
@@ -59,9 +60,11 @@ const NavBar = ({ children }: any) => {
               <>
                 <Col flex="0.1">
                   <Row justify="end">
-                    <Button className="button-logout" shape="round">
-                      <RiLogoutCircleLine className="icon-logout" />
-                    </Button>
+                    <Link to="/login">
+                      <Button className="button-logout" shape="round">
+                        <RiLogoutCircleLine className="icon-logout" />
+                      </Button>
+                    </Link>
                   </Row>
                 </Col>
                 <Col flex="0.07">
