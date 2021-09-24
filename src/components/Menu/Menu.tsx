@@ -6,7 +6,7 @@ import { FaWineGlassAlt, FaRegUser } from "react-icons/fa";
 import "./Menu.style.less";
 import { Link } from "react-router-dom";
 
-const Menu = ({ selectedKey, changeSelectedKey }: any) => {
+export default function Menu({ selectedKey, changeSelectedKey }: any) {
   return (
     <AntMenu className="menu" mode="inline" selectedKeys={[selectedKey]}>
       <AntMenu.Item
@@ -52,6 +52,4 @@ const Menu = ({ selectedKey, changeSelectedKey }: any) => {
       </AntMenu.Item>
     </AntMenu>
   );
-};
-
-export default Menu;
+}

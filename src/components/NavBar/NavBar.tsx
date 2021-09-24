@@ -11,7 +11,7 @@ const { useBreakpoint } = Grid;
 const UserAvatar =
   "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=40";
 
-const NavBar = ({ children }: any) => {
+export default function NavBar({ children }: any) {
   const [visible, setVisible] = useState(false);
   const { lg } = useBreakpoint();
   console.log(lg);
@@ -94,5 +94,4 @@ const NavBar = ({ children }: any) => {
       </Row>
     </nav>
   );
-};
-export default NavBar;
+}

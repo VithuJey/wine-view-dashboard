@@ -5,7 +5,7 @@ import "./SideBar.style.less";
 
 const { Sider } = Layout;
 
-function SideBar({ children }: any) {
+export default function SideBar({ children }: any) {
   return (
     <Sider
       className="sidebar"
@@ -29,5 +29,3 @@ function SideBar({ children }: any) {
     </Sider>
   );
 }
-
-export default SideBar;

@@ -1,5 +1,5 @@
-import { DatePicker, Row } from "antd";
-import React, { useState } from "react";
+import { DatePicker, Row, Spin } from "antd";
+import React, { lazy, Suspense, useState } from "react";
 import Card from "../../components/Card/Card";
 import "./Dashboard.style.less";
 import SESSION_LOGO from "../../assets/Images/session.svg";
@@ -7,11 +7,14 @@ import WINE_SAVED_LOGO from "../../assets/Images/wine-saved.svg";
 import WINE_SHARED_LOGO from "../../assets/Images/wine-shared.svg";
 import POPULAR_WINE_LOGO from "../../assets/Images/popular-wine.svg";
 import TRANSACTION_LOGO from "../../assets/Images/transaction.svg";
-import ColumnChart from "../../components/Chart/ColumnChart";
+// import ColumnChart from "../../components/Chart/ColumnChart";
 import "antd/es/date-picker/style";
-import StackedChart from "../../components/Chart/StackedChart";
+// import StackedChart from "../../components/Chart/StackedChart";
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 import { useHistory } from "react-router";
+
+const ColumnChart = lazy(() => import("../../components/Chart/ColumnChart"));
+const StackedChart = lazy(() => import("../../components/Chart/StackedChart"));
 
 const { RangePicker } = DatePicker;
 
@@ -73,46 +76,48 @@ function Dashboard() {
   }, [xs, selectedCards, history]);
 
   return (
-    <div>
-      <Row className="dashboard-header" justify="space-between">
-        <p className="dashboard-title">Dashboard</p>
-      </Row>
-      <div className="dashboard-body">
-        <div className="card-container">
-          {cardDetails.map((detail) => (
-            <Card
-              cardNo={detail.cardNo}
-              imgSrc={detail.imgSrc}
-              color={detail.color}
-              title={detail.title}
-              count={detail.count}
-              selectedCards={selectedCards}
-              setSelectedCards={setSelectedCards}
-            />
-          ))}
-        </div>
-
-        {!xs && selectedCards.length !== 0 ? (
-          <div className="chart-container">
-            {selectedCards.includes("1") && selectedCards.includes("2") ? (
-              <StackedChart />
-            ) : (
-              <>
-                <Row justify="end">
-                  <RangePicker
-                    className="range-picker"
-                    placeholder={["From date", "To date"]}
-                  />
-                </Row>
-                <ColumnChart className="column-chart" />
-              </>
-            )}
+    <Suspense fallback={<Spin size="large" />}>
+      <div>
+        <Row className="dashboard-header" justify="space-between">
+          <p className="dashboard-title">Dashboard</p>
+        </Row>
+        <div className="dashboard-body">
+          <div className="card-container">
+            {cardDetails.map((detail) => (
+              <Card
+                cardNo={detail.cardNo}
+                imgSrc={detail.imgSrc}
+                color={detail.color}
+                title={detail.title}
+                count={detail.count}
+                selectedCards={selectedCards}
+                setSelectedCards={setSelectedCards}
+              />
+            ))}
           </div>
-        ) : (
-          <></>
-        )}
+
+          {!xs && selectedCards.length !== 0 ? (
+            <div className="chart-container">
+              {selectedCards.includes("1") && selectedCards.includes("2") ? (
+                <StackedChart />
+              ) : (
+                <>
+                  <Row justify="end">
+                    <RangePicker
+                      className="range-picker"
+                      placeholder={["From date", "To date"]}
+                    />
+                  </Row>
+                  <ColumnChart className="column-chart" />
+                </>
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }
 
