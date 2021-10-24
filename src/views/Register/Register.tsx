@@ -1,6 +1,6 @@
 import { Row, Col, Form, Input, Button } from "antd";
 import React from "react";
-import LOGO from "@Assets/Images/logo.png";
+import LOGO from "@Assets/Images/logo.svg";
 import "./Register.style.less";
 import "antd/es/input/style";
 import "antd/es/form/style";
