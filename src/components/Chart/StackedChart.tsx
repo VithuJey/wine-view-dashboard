@@ -120,14 +120,6 @@ function StackedChart() {
       position: "top-right",
     },
     theme: "custom-theme",
-    // label: {
-    //   position: "middle",
-    //   layout: [
-    //     { type: "interval-adjust-position" },
-    //     { type: "interval-hide-overlap" },
-    //     { type: "adjust-color" },
-    //   ],
-    // },
   };
   return <Column {...config} />;
 }
