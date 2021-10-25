@@ -9,14 +9,14 @@ import Modal from "../../components/Modal/Modal";
 
 const columns = [
   {
-    title: "Producer",
+    title: () => <b>Producer</b>,
     dataIndex: "producer",
     key: "producer",
     responsive: ["xs", "sm", "md", "md"],
     render: (producer) => <Link to="/wine/view/123456">{producer}</Link>,
   },
   {
-    title: "Picture",
+    title: () => <b>Picture</b>,
     dataIndex: "picture",
     key: "picture",
     render: (picture) => (
@@ -25,38 +25,38 @@ const columns = [
     responsive: ["sm", "md", "md"],
   },
   {
-    title: "Vintage",
+    title: () => <b>Vintage</b>,
     dataIndex: "vintage",
     key: "vintage",
     responsive: ["sm", "md", "lg"],
   },
   {
-    title: "Description",
+    title: () => <b>Description</b>,
     dataIndex: "description",
     key: "description",
     responsive: ["lg"],
   },
   {
-    title: "Grape Varietal",
+    title: () => <b>Grape Varietal</b>,
     dataIndex: "grapeVarietal",
     key: "grapeVarietal",
     responsive: ["lg"],
   },
   {
-    title: "Region",
+    title: () => <b>Region</b>,
     dataIndex: "region",
     key: "region",
     responsive: ["lg"],
   },
   {
-    title: "Alcohol %",
+    title: () => <b>Alcohol %</b>,
     dataIndex: "alcohol",
     key: "alcohol",
     render: (alcohol) => `${alcohol} %`,
     responsive: ["lg"],
   },
   {
-    title: "Action",
+    title: () => <b>Action</b>,
     dataIndex: "action",
     key: "action",
     render: (text, record) => (
