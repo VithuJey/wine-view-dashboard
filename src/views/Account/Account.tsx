@@ -6,7 +6,7 @@ import "antd/es/input/style";
 import "antd/es/form/style";
 import Button from "../../components/Button/Button";
 import { SaveOutlined } from "@ant-design/icons";
-import FormLayout from "../../components/Layouts/FormLayout";
+import FormLayout from "../../components/FormLayout/FormLayout";
 
 export const renderLabel = (label: string) => {
   return <p className="form-label">{label}</p>;

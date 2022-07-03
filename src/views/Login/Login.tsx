@@ -1,11 +1,11 @@
-import { Row, Col, Form, Input, Button } from "antd";
 import React from "react";
-import LOGO from "@Assets/Images/logo.png";
+import { Link } from "react-router-dom";
+import LOGO from "@Assets/Images/logo.svg";
 import "./Login.style.less";
 import "antd/es/input/style";
 import "antd/es/form/style";
 import "antd/es/button/style";
-import { Link } from "react-router-dom";
+import { Row, Col, Form, Input, Button } from "antd";
 
 const renderLabel = (label: string) => {
   return <p className="auth-form-label">{label}</p>;

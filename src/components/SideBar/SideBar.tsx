@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Divider } from "antd";
-import LOGO from "@Assets/Images/logo.png";
+import LOGO from "@Assets/Images/logo.svg";
 import "./SideBar.style.less";
 
 const { Sider } = Layout;

@@ -2,7 +2,7 @@ import SaveOutlined from "@ant-design/icons/lib/icons/SaveOutlined";
 import { Form, Input, InputNumber, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import Button from "../../components/Button/Button";
-import FormLayout from "../../components/Layouts/FormLayout";
+import FormLayout from "../../components/FormLayout/FormLayout";
 import ImageUpload from "../../components/ImageUpload/ImageUpload";
 import { renderLabel } from "../Account/Account";
 import "./WineAdd.style.less";
