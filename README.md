@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Wine View Dashboard
+
+The codebase contains a demo dashboard of user interfaces designed using [Figma](https://www.figma.com/file/xorRRWzTJKH9spnWKbMEa5/WineView-Dashboard-(Desktop-%26-Mobile)?node-id=43%3A4442) & developed using React and Ant Design.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

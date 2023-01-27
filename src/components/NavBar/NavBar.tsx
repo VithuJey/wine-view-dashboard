@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Drawer, Button, Row, Col, Grid, Divider } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
-import LOGO from "@Assets/Images/logo.png";
+import LOGO from "@Assets/Images/logo.svg";
 import "./NavBar.style.less";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
